@@ -1,5 +1,32 @@
 /*The color for the webpage */
-h1 {
+
+/* Main title styling and second title */
+.titles {
     color: blue;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 200px;
+
+}
+
+/* Login info styling */
+.log-In {
+
+    text-align: center;
+}
+
+/* Note that "b" means button */
+
+.b{
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 8px;
+
+}
+
+/* dark-blue  */
+body {
+    background-color:  #0A0F1F
 }
 
