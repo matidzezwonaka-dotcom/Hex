@@ -1,32 +1,42 @@
 /*The color for the webpage */
 
-/* Main title styling and second title */
+
+/* Main title styling and second title    */
 .titles {
     color: blue;
     text-align: center;
     font-size: 30px;
     margin-top: 200px;
-
 }
 
 /* Login info styling */
 .log-In {
-
     text-align: center;
+    color: blue;
 }
 
 /* Note that "b" means button */
 
-.b{
+.b {
     width: 400px;
     height: 40px;
     font-size: 20px;
-    border-radius: 8px;
-
+    
 }
+
+.b:hover{
+    background-color: blue;
+}
+
 
 /* dark-blue  */
 body {
     background-color:  #0A0F1F
+}
+
+/* for the sign in page aka (Create new account */
+
+.details {
+    color: blue;
 }
 
