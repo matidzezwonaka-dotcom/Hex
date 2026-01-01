@@ -1,6 +1,5 @@
 /*The color for the webpage */
 
-
 /* Main title styling and second title    */
 .titles {
     color: blue;
@@ -24,14 +23,15 @@
     
 }
 
-.b:hover{
+.b:hover , .grid-item:hover {
     background-color: blue;
 }
 
 
 /* dark-blue  */
 body {
-    background-color:  #0A0F1F
+    background-color:  #0A0F1F;
+    font-family: Arial, sans-serif;
 }
 
 /* for the sign in page aka (Create new account */
@@ -40,3 +40,39 @@ body {
     color: blue;
 }
 
+/*buttons for the armor */
+
+.board {
+
+    width: 400px;
+    height: 40px;
+
+}
+
+/* Note for this is for the dash board */
+.heading {
+    color: blue;
+}
+
+/* for the dashboard back-ground */
+
+/* for the grid */
+
+.container {
+   
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #1E2A47;  /* navy blue */
+    padding: 200px;
+
+}
+
+ /* Button styling */
+.grid-item  {
+    position: relative;
+    height: 100px;
+    
+    color: black;
+    border: solid 2px #0A0F1F;
+
+}
