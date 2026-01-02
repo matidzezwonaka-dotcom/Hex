@@ -26,8 +26,7 @@
     background-color: white;  /* Button color */
     color: black;            /* Text color */
     text-decoration: none;   /* Remove underline */
-    cursor: pointer;
-       border: 1px solid black;
+    border: 1px solid black;
 }
 
 
@@ -49,14 +48,6 @@ body {
     
 }
 
-/*buttons for the armor */
-
-.board {
-
-    width: 400px;
-    height: 40px;
-
-}
 
 /* Note for this is for the dash board */
 .heading {
@@ -70,9 +61,10 @@ body {
 .container {
    
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns:auto auto auto;
     background-color: #1E2A47;  /* navy blue */
-    padding: 200px;
+    padding: 150px;
+   
     
 }
 
@@ -83,9 +75,9 @@ body {
     font-size: 30px;
     color: black;
     border: solid 2px #0A0F1F;
-
+     background-color: white;
+    text-decoration: none;  
+    text-align: center;
 }
-
-
 
 /* time table for a planer */
