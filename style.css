@@ -1,7 +1,7 @@
 /*The color for the webpage */
 
 /* Main title styling and second title    */
-.titles {
+.titles  {
     color: blue;
     text-align: center;
     font-size: 30px;
@@ -20,10 +20,18 @@
     width: 400px;
     height: 40px;
     font-size: 20px;
-    
+    display: inline-block;
+    line-height: 40px;       /* Vertically centers text inside height */
+    text-align: center;      /* Horizontally centers text */
+    background-color: white;  /* Button color */
+    color: black;            /* Text color */
+    text-decoration: none;   /* Remove underline */
+    cursor: pointer;
+       border: 1px solid black;
 }
 
-.b:hover , .grid-item:hover {
+
+.b:hover , .grid-item:hover , #guestButton:hover {
     background-color: blue;
 }
 
@@ -34,10 +42,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* for the sign in page aka (Create new account */
+/* for the sign in page aka (Create new account) */
 
 .details {
-    color: blue;
+    color: white;
+    
 }
 
 /*buttons for the armor */
@@ -64,15 +73,19 @@ body {
     grid-template-columns: auto auto auto;
     background-color: #1E2A47;  /* navy blue */
     padding: 200px;
-
+    
 }
 
  /* Button styling */
 .grid-item  {
     position: relative;
     height: 100px;
-    
+    font-size: 30px;
     color: black;
     border: solid 2px #0A0F1F;
 
 }
+
+
+
+/* time table for a planer */

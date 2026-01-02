@@ -8,25 +8,29 @@
         <title> Log in  </title>
         <link rel="stylesheet" href="style.css">
 
+
     </head>
 
     <body>
         <div class= "titles">
             <h1>Creating Account</h1>
         </div>
-    
-        <form class= "details">
-
-            <label>Name:</label><br>
-            
-            <input><br><br>
-
-            <label>Surname:</label><br>
-
-            <input>
-
         
-                
+        <!--form to make new account-->
+        <form class = "details" action="index.php" method ="POST">
+            <label for="username">username:</label>
+
+            <input type="text" id="usename" required><br>
+
+             <label for="password">password:</label>
+            <input type="password" id="password" required><br>
+
+            <label for="email">email:</label>
+            <input type="email" id = "email"><br>
+
+            <input type="submit"><br>
+            <input type="reset"><br>
+
         </form>
     </body>
 </html>
