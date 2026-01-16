@@ -62,14 +62,15 @@ body {
 }
 
 
-.heading, .dash-heading {
-    color: blue;
+ .heading, .sub-heading {
+    color: lightblue;
+    font-size: 30px;
     
 }
 
-.dash-heading {
+.sub-heading {
     text-align: center;
-     font-size: 20px;
+
     
 }
 
@@ -81,8 +82,7 @@ body {
     grid-template-columns: auto auto auto;
     
     padding: 120px;   /* creating spacing on the left */
-    
-   
+
     
 }
 
@@ -92,19 +92,26 @@ body {
     width: 250px; /* up to down */
     height: 130px;
     font-size: 20px;
+
     /*
     display: inline-block;
     */
     
     line-height: 40px;       /* Vertically centers text inside height */
     text-align: center;      /* Horizontally centers text */
-    background-color: white;  /* Button color */
-    color: black;            /* Text color */
+    background-color:  transparent;  /* Button color */
+    color: white;            /* Text color */
     text-decoration: none;   /* Remove underline */
-    border: 1px solid black;
+    border: 1px solid lightblue;
 
 }
 
 /*========================PLANNER=================================*/
+
+.planner-background {
+    background-image: url('back-ground-color.PNG');
+    background-size: cover;
+}
+
 
 
