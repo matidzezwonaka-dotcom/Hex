@@ -5,20 +5,49 @@
           <title> Planner </title>
         
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,
+        FILL,GRAD@20..48,100..700,0..1,-50..200">
+
            
     </head>
-
+      <body>
         <header>
             <h1 class="heading">Hexplore</h1>
+            <h2 class="sub-heading">Planner</h2>
         </header>
 
-    <body class="planner-background">
+        <div class="calendar-container">
+        <header class="calendar-header">
+            <p class="calendar-current-date"></p>
+            <div class="calendar-navigation">
+                <span id="calendar-prev" 
+                      class="material-symbols-rounded">
+                    <
+                </span>
+                <span id="calendar-next" 
+                      class="material-symbols-rounded">
+                    >
+                </span>
+            </div>
+        </header>
 
-        <h2 class="sub-heading">Planner</h2>
-        <!--the calender design-->
-
+        <div class="calendar-body">
+            <ul class="calendar-weekdays">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
+            <ul class="calendar-dates"></ul>
+        </div>
+    </div>
+    <script src="planner.js"></script>
        
-</body>
+
 
     </body>
     

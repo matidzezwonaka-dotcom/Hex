@@ -1,10 +1,9 @@
 /*The color for the webpage */
 
-
 /*========================Main title and starting page=================================*/
 
-.titles  {
-    color: blue;
+.titles {
+    color: lightblue;
     text-align: center;
     font-size: 30px;
     margin-top: 200px;
@@ -13,97 +12,102 @@
 /* Login info styling */
 .log-In {
     text-align: center;
-    color: blue;
+    color: lightblue;
 }
 
 /* Note that "b" means button */
 
 .b {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 40px;
     font-size: 20px;
     display: inline-block;
-    line-height: 40px;       /* Vertically centers text inside height */
-    text-align: center;      /* Horizontally centers text */
-    background-color: white;  /* Button color */
-    color: black;            /* Text color */
-    text-decoration: none;   /* Remove underline */
-    border: 1px solid black;
+    line-height: 40px;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: 1px solid lightblue;
 }
 
-
-.b:hover , .grid-item:hover , #guestButton:hover {
+.b:hover,
+.grid-item:hover,
+#guestButton:hover {
     background-color: blue;
+    transform: translateY(-2px);
 }
-
 
 /* dark-blue  */
 body {
-   
-    background-color:  #0A0F1F;
+    background-image: url('back-ground-color.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
+    margin: 0;
 }
-
-
 
 /*====================For signing in and aka (create new account)=================================*/
 .details {
     color: white;
-    
 }
-
 
 /*========================Dashboard=================================*/
 
 .dashboard-background {
-
     background-image: url('back-ground-color.PNG');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
 }
 
-
- .heading, .sub-heading {
+.heading,
+.sub-heading {
     color: lightblue;
     font-size: 30px;
-    
 }
 
 .sub-heading {
     text-align: center;
-
-    
 }
-
-/* for the dashboard back-ground */
 
 /* for the grid */
 .container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    
-    padding: 120px;   /* creating spacing on the left */
-
-    
+    grid-template-columns: repeat(3, 250px);
+    justify-content: center;
+    align-content: center;
+    gap: 25px;
+    min-height: 70vh;
+    padding: 20px;
 }
 
- /* Button styling */
- .grid-item {
-  /*
-    width: 250px; /* up to down */
-    height: 130px;
+/* Button styling */
+.grid-item {
+    min-height: 120px;
+    height: auto;
+    max-height: 180px;
     font-size: 20px;
-
-    /*
-    display: inline-block;
-    */
-    
-    line-height: 40px;       /* Vertically centers text inside height */
-    text-align: center;      /* Horizontally centers text */
-    background-color:  transparent;  /* Button color */
-    color: white;            /* Text color */
-    text-decoration: none;   /* Remove underline */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: normal;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
     border: 1px solid lightblue;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
 
+.grid-item:hover {
+    background-color: rgba(0, 0, 255, 0.3);
+    transform: translateY(-3px);
 }
 
 /*========================PLANNER=================================*/
@@ -111,7 +115,171 @@ body {
 .planner-background {
     background-image: url('back-ground-color.PNG');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
+/* ======================== CALENDAR STYLES ======================== */
 
+.calendar-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
 
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.calendar-current-date {
+    font-size: 1.8rem;
+    color: lightblue;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-navigation {
+    display: flex;
+    gap: 10px;
+}
+
+.calendar-navigation span {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: lightblue;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.calendar-navigation span:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Days of week headers */
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.calendar-weekdays li {
+    color: lightblue;
+    font-weight: 600;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+/* Calendar dates grid */
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calendar-dates li {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: lightblue;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1rem;
+}
+
+/* Active (today) */
+.calendar-dates li.active {
+    background: rgba(74, 144, 226, 0.8);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+/* Highlighted (clicked day) */
+.calendar-dates li.highlight {
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid lightblue;
+    font-weight: bold;
+    transform: scale(1.05);
+    color: lightblue;
+}
+
+/* Inactive (previous/next month) */
+.calendar-dates li.inactive {
+    color: rgba(173, 216, 230, 0.4);
+    cursor: default;
+}
+
+/* Hover effect for active days */
+.calendar-dates li:not(.inactive):hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(2, 250px);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .calendar-container {
+        max-width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    .calendar-current-date {
+        font-size: 1.4rem;
+    }
+    
+    .calendar-dates li {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .calendar-navigation span {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .calendar-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
