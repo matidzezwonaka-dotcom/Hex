@@ -1,97 +1,200 @@
-
-//================Planner===============================================//
-
-let date = new Date();  // to see what time it is on my clock 
-
-let year = date.getFullYear(); // to get a full year function 
-
-let month = date.getMonth(); 
-
-const day = document.querySelector(".calendar-dates"); // Fixed spelling: "calendar" not "calender"
-const currdate = document.querySelector(".calendar-current-date");
-
-const prenexIcons = document.querySelectorAll(".calendar-navigation span");
-
-const months = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+// ========== MONTHS DATA ==========
+const MONTHS = [
+    "January 📅", "February 💝", "March 🌱", "April 🌧️", "May 🌸", 
+    "June ☀️", "July 🎆", "August 🏖️", "September 🍎", 
+    "October 🎃", "November 🦃", "December 🎄"
 ];
 
-let clickedDay = null;
+// ========== GLOBAL VARIABLES ==========
+let currentDateObject = new Date();
+let currentYear = currentDateObject.getFullYear();
+let currentMonthIndex = currentDateObject.getMonth();
+let selectedDayNumber = null;
 let selectedDayElement = null;
 
-const manipulate = () => {
-  let dayone = new Date(year, month, 1).getDay();
-  let lastdate = new Date(year, month + 1, 0).getDate();
-  let dayend = new Date(year, month, lastdate).getDay();
-  let monthlastdate = new Date(year, month, 0).getDate();
+// ========== DOM ELEMENTS ==========
+const calendarDaysContainer = document.querySelector(".calendar-dates");
+const currentDateDisplay = document.querySelector(".calendar-current-date");
+const navigationButtons = document.querySelectorAll(".calendar-navigation span");
 
-  let lit = "";
+// ========== CALENDAR GENERATION ==========
+function generateCalendarGrid() {
+    // Calculate important dates
+    const firstDayOfMonth = new Date(currentYear, currentMonthIndex, 1).getDay();
+    const lastDateOfMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
+    const lastDayOfMonth = new Date(currentYear, currentMonthIndex, lastDateOfMonth).getDay();
+    const lastDateOfPreviousMonth = new Date(currentYear, currentMonthIndex, 0).getDate();
 
-  // Previous month days
-  for (let i = dayone; i > 0; i--) {
-    lit += `<li class="inactive">${monthlastdate - i + 1}</li>`;
-  }
+    let htmlContent = "";
 
-  // Current month days
-  for (let i = 1; i <= lastdate; i++) {
-    let isToday = (i === date.getDate()
-      && month === new Date().getMonth()
-      && year === new Date().getFullYear()) ? "active" : "";
-
-    let highlightClass = (clickedDay === i) ? "highlight" : "";
-
-    lit += `<li class="${isToday} ${highlightClass}" data-day="${i}">${i}</li>`;
-  }
-
-  // Next month days
-  for (let i = dayend; i < 6; i++) {
-    lit += `<li class="inactive">${i - dayend + 1}</li>`;
-  }
-
-  currdate.innerText = `${months[month]} ${year}`;
-  day.innerHTML = lit;
-
-  addClickListenersToDays();
-};
-
-function addClickListenersToDays() {
-  const allDays = day.querySelectorAll('li:not(.inactive)');
-  allDays.forEach(li => {
-    li.addEventListener('click', () => {
-      if (selectedDayElement) {
-        selectedDayElement.classList.remove('highlight');
-      }
-
-      li.classList.add('highlight');
-      selectedDayElement = li;
-
-      clickedDay = parseInt(li.getAttribute('data-day'));
-
-      console.log('Clicked day:', clickedDay);
-    });
-  });
-}
-
-// Initialize calendar
-manipulate();
-
-// Navigation button events
-prenexIcons.forEach(icon => {
-  icon.addEventListener("click", () => {
-    month = icon.id === "calendar-prev" ? month - 1 : month + 1;
-
-    if (month < 0 || month > 11) {
-      date = new Date(year, month, new Date().getDate());
-      year = date.getFullYear();
-      month = date.getMonth();
-    } else {
-      date = new Date();
+    // Add previous month's days
+    for (let counter = firstDayOfMonth; counter > 0; counter--) {
+        const dayNumber = lastDateOfPreviousMonth - counter + 1;
+        htmlContent += `<li class="inactive">${dayNumber}</li>`;
     }
 
-    clickedDay = null;
+    // Add current month's days
+    for (let dayNumber = 1; dayNumber <= lastDateOfMonth; dayNumber++) {
+        const isToday = checkIfIsToday(dayNumber);
+        const isSelected = checkIfIsSelected(dayNumber);
+        const todayClass = isToday ? "active" : "";
+        const selectedClass = isSelected ? "highlight" : "";
+        
+        htmlContent += `<li class="${todayClass} ${selectedClass}" data-day="${dayNumber}">${dayNumber}</li>`;
+    }
+
+    // Add next month's days
+    for (let counter = lastDayOfMonth; counter < 6; counter++) {
+        const dayNumber = counter - lastDayOfMonth + 1;
+        htmlContent += `<li class="inactive">${dayNumber}</li>`;
+    }
+
+    // Update display
+    currentDateDisplay.textContent = `${MONTHS[currentMonthIndex]} ${currentYear}`;
+    calendarDaysContainer.innerHTML = htmlContent;
+
+    setupDayClickHandlers();
+}
+
+function checkIfIsToday(dayNumber) {
+    const today = new Date();
+    const isSameDay = (dayNumber === today.getDate());
+    const isSameMonth = (currentMonthIndex === today.getMonth());
+    const isSameYear = (currentYear === today.getFullYear());
+
+    
+    
+    return isSameDay && isSameMonth && isSameYear;
+
+
+}
+
+function checkIfIsSelected(dayNumber) {
+    return (selectedDayNumber === dayNumber);
+}
+//important 
+
+
+
+// ========== EVENT HANDLERS ==========
+function setupDayClickHandlers() {
+    const activeDayElements = calendarDaysContainer.querySelectorAll('li:not(.inactive)');
+    
+    activeDayElements.forEach(function(dayElement) {
+        dayElement.addEventListener('click', handleDayClick);
+    });
+}
+
+function handleDayClick(event) {
+    const clickedElement = event.currentTarget;
+    
+    // Remove highlight from previously selected day
+    if (selectedDayElement) {
+        selectedDayElement.classList.remove('highlight');
+    }
+
+    // Add highlight to clicked day
+    clickedElement.classList.add('highlight');
+    selectedDayElement = clickedElement;
+if (selectedDayElement) {
+    // FIX 1: Remove old button
+    const oldButton = document.querySelector('.calendar-header button');
+    if (oldButton) oldButton.remove();
+    
+    // BUTTON 1
+    const headerButton = document.createElement('button');
+    headerButton.textContent = 'Add Task';
+    document.querySelector('.calendar-header').appendChild(headerButton);
+
+    headerButton.addEventListener('click', function() {
+        const element = document.querySelector(".task-bar");
+        element.innerHTML = "Daily Task<br> ";
+        
+        // BUTTON 2  
+        const taskBarButton = document.createElement('button');
+        taskBarButton.textContent = 'Choose Category';
+        element.appendChild(taskBarButton);
+
+        taskBarButton.addEventListener('click', function() {
+            const schoolButton = document.createElement('button');
+            const workButton = document.createElement('button');
+            const personalButton = document.createElement('button');
+            
+            schoolButton.textContent = 'School';
+            workButton.textContent = 'Work';
+            personalButton.textContent = 'Personal';
+            
+            const categoryContainer = document.querySelector('.category');
+
+            if (categoryContainer) {
+                // Clear old content first
+                categoryContainer.innerHTML = '';
+                
+                // Add buttons with proper line breaks
+                categoryContainer.appendChild(schoolButton);
+                categoryContainer.appendChild(document.createElement('br'));
+                categoryContainer.appendChild(workButton);
+                categoryContainer.appendChild(document.createElement('br'));
+                categoryContainer.appendChild(personalButton);
+            }
+        });
+    });
+}
+      
+  
+    // Store the selected day number
+    const dayAttributeValue = clickedElement.getAttribute('data-day');
+    selectedDayNumber = parseInt(dayAttributeValue);
+
+   
+}
+
+function handleNavigationButtonClick(event) {
+    const buttonElement = event.currentTarget;
+    const buttonId = buttonElement.id;
+    
+    // Change month
+    if (buttonId === "calendar-prev") {
+        currentMonthIndex = currentMonthIndex - 1;
+    } else if (buttonId === "calendar-next") {
+        currentMonthIndex = currentMonthIndex + 1;
+    }
+
+    // Handle year change when month goes out of bounds
+    if (currentMonthIndex < 0) {
+        currentDateObject = new Date(currentYear, currentMonthIndex, currentDateObject.getDate());
+        currentYear = currentDateObject.getFullYear();
+        currentMonthIndex = currentDateObject.getMonth();
+    } else if (currentMonthIndex > 11) {
+        currentDateObject = new Date(currentYear, currentMonthIndex, currentDateObject.getDate());
+        currentYear = currentDateObject.getFullYear();
+        currentMonthIndex = currentDateObject.getMonth();
+    }
+
+    // Clear selection when month changes
+    selectedDayNumber = null;
     selectedDayElement = null;
 
-    manipulate();
-  });
-});
+    // Regenerate calendar
+    generateCalendarGrid();
+}
+
+function setupNavigationButtons() {
+    navigationButtons.forEach(function(buttonElement) {
+        buttonElement.addEventListener("click", handleNavigationButtonClick);
+    });
+}
+
+// ========== INITIALIZATION ==========
+function initializeCalendar() {
+    setupNavigationButtons();
+    generateCalendarGrid();
+}
+
+// ========== START THE CALENDAR ==========
+initializeCalendar();
+
+
+
+//=======Side bar =========
+

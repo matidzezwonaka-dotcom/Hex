@@ -1,33 +1,29 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hexplore Planner</title>
+    <link rel="stylesheet" href="style.css">
 
-<html>
-    <head>
-          <title> Planner </title>
-        
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,
-        FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+<body>
+    <header>
+        <h1 class="heading">Hexplore</h1>
+        <h2 class="sub-heading">Planner</h2>
+    </header>
 
-           
-    </head>
-      <body>
-        <header>
-            <h1 class="heading">Hexplore</h1>
-            <h2 class="sub-heading">Planner</h2>
-        </header>
+    <!-- KEEP THIS STRUCTURE EXACTLY AS YOUR JS EXPECTS -->
+    <div class="calendar-container">                                               
 
-        <div class="calendar-container">
         <header class="calendar-header">
             <p class="calendar-current-date"></p>
             <div class="calendar-navigation">
-                <span id="calendar-prev" 
-                      class="material-symbols-rounded">
-                    <
+                <!-- MUST KEEP THESE AS SPAN ELEMENTS -->
+                <span id="calendar-prev" class="material-symbols-rounded">
+                    &lt;
                 </span>
-                <span id="calendar-next" 
-                      class="material-symbols-rounded">
-                    >
+                <span id="calendar-next" class="material-symbols-rounded">
+                    &gt;
                 </span>
             </div>
         </header>
@@ -42,13 +38,18 @@
                 <li>Fri</li>
                 <li>Sat</li>
             </ul>
+            <!-- THIS UL GETS POPULATED BY JAVASCRIPT -->
             <ul class="calendar-dates"></ul>
         </div>
     </div>
-    <script src="planner.js"></script>
-       
 
+    <!--This is for when user clicks a day then info comes-->
 
-    </body>
+    <!--note the hello world is a tempory place holder-->
+      <div class="task-bar"></div>
     
+        <div class="category"></div>
+
+    <script src="planner.js"></script>
+</body>
 </html>
