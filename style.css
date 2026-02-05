@@ -12,7 +12,7 @@
 /* Login info styling */
 .log-In {
     text-align: center;
-    color: lightblue;
+
 }
 
 /* Note that "b" means button */
@@ -29,7 +29,48 @@
     color: white;
     text-decoration: none;
     border: 1px solid lightblue;
+     transition: all 0.2s ease;
+    position: relative;
 }
+
+/* GLITCH EFFECT ON CLICK */
+.b:active,
+.b.glitching {
+    animation: glitch 0.3s;
+}
+
+/* Add to your existing .b styles */
+.b {
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    font-size: 20px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: 1px solid lightblue;
+    transition: all 0.2s ease; /* Keep your existing transition */
+    position: relative; /* Needed for glitch effect */
+}
+
+/* GLITCH EFFECT ON CLICK */
+.b:active,
+.b.glitching {
+    animation: glitch 0.3s;
+}
+
+/* Add to your existing .b styles */
+.b {
+    /* Your existing styles */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid lightblue;
+}
+
+
 
 .b:hover,
 .grid-item:hover,
@@ -121,7 +162,7 @@ body {
 
 /* ======================== CALENDAR STYLES ======================== */
 
-.calendar-container {
+.calendar-container { 
     width: 100%;
     max-width: 500px;
     margin: 40px auto;
@@ -283,3 +324,76 @@ body {
         align-items: flex-start;
     }
 }
+
+/*=================Daily task=================================*/
+/* Task bar styling - hidden by default */
+
+
+/* style for the task section */
+.Add-task-container {
+     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+/*to exsit the menu */
+.menu-exist {
+    margin-left: auto;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px; 
+    color: white;
+    border: 1px solid lightblue; 
+}
+
+
+/*button style for the task section */
+.task-button {
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+     cursor: pointer;
+    width: 300px;
+    border-radius: 8px; 
+    color: white;
+    border: 1px solid lightblue; 
+
+}
+
+
+/* To center and add life the back grround of the menu */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;           /* ← Shrinks to content */
+    max-width: 300px;      /* ← But never wider than 300px */
+    margin: 0 auto;        /* ← Center horizontally */
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;         /* ← Add some inside space! */
+    border-radius: 10px;   /* ← Soften edges? */
+    border: 1px solid lightblue; 
+
+}
+
+/*headding of the menu */
+
+.menu-heading {
+    color: lightblue;
+}
+
+
+/* to add life to the buttons */
+.menu-button {
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px; 
+    color: white;
+    border: 1px solid lightblue; 
+}
+
