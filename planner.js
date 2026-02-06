@@ -37,6 +37,20 @@ document.querySelector('.task-button').addEventListener('click', function() {
     }
 });
 
+
+
+//say the menu button was pressed 
+document.querySelector('.menu-exist').addEventListener('click', function () {
+
+    console.log("menu exist was clicked");
+
+    //removes the content of the memu 
+    document.querySelector('.menu-container').style.display = 'none';
+
+    //removes the content of the task button
+    document.querySelector('.Add-task-container').style.display = 'none';
+});
+
 // ==================== CALENDAR GENERATION FUNCTIONS ====================
 function generateCalendarGrid() {
     // Calculate important dates

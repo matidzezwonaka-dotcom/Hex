@@ -14,9 +14,7 @@
     text-align: center;
 
 }
-
 /* Note that "b" means button */
-
 .b {
     width: 100%;
     max-width: 400px;
@@ -29,47 +27,10 @@
     color: white;
     text-decoration: none;
     border: 1px solid lightblue;
-     transition: all 0.2s ease;
-    position: relative;
+    transition: all 0.2s ease;
+    position: relative; /* For glitch effect */
+    overflow: hidden; /* For glitch effect */
 }
-
-/* GLITCH EFFECT ON CLICK */
-.b:active,
-.b.glitching {
-    animation: glitch 0.3s;
-}
-
-/* Add to your existing .b styles */
-.b {
-    width: 100%;
-    max-width: 400px;
-    height: 40px;
-    font-size: 20px;
-    display: inline-block;
-    line-height: 40px;
-    text-align: center;
-    background-color: transparent;
-    color: white;
-    text-decoration: none;
-    border: 1px solid lightblue;
-    transition: all 0.2s ease; /* Keep your existing transition */
-    position: relative; /* Needed for glitch effect */
-}
-
-/* GLITCH EFFECT ON CLICK */
-.b:active,
-.b.glitching {
-    animation: glitch 0.3s;
-}
-
-/* Add to your existing .b styles */
-.b {
-    /* Your existing styles */
-    position: relative;
-    overflow: hidden;
-    border: 1px solid lightblue;
-}
-
 
 
 .b:hover,
@@ -94,6 +55,8 @@ body {
 .details {
     color: white;
 }
+
+
 
 /*========================Dashboard=================================*/
 
@@ -121,14 +84,14 @@ body {
     grid-template-columns: repeat(3, 250px);
     justify-content: center;
     align-content: center;
-    gap: 25px;
+    gap: 10px;
     min-height: 70vh;
     padding: 20px;
 }
 
 /* Button styling */
 .grid-item {
-    min-height: 120px;
+    min-height: 100px;
     height: auto;
     max-height: 180px;
     font-size: 20px;
@@ -332,68 +295,79 @@ body {
 /* style for the task section */
 .Add-task-container {
      
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
 
 }
 
-/*to exsit the menu */
-.menu-exist {
-    margin-left: auto;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 8px; 
-    color: white;
-    border: 1px solid lightblue; 
-}
 
 
 /*button style for the task section */
 .task-button {
+
     height: 50px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
      cursor: pointer;
     width: 300px;
     border-radius: 8px; 
     color: white;
     border: 1px solid lightblue; 
+    border-radius: 8px; 
+}
 
+/*to exsit the menu */
+.menu-exist {
+    margin-left: auto;
+    cursor: pointer;
+    border-radius: 8px; 
+    color: white;
+    border: 1px solid lightblue; 
+    background: rgba(255, 255, 255, 0.15);
 }
 
 
 /* To center and add life the back grround of the menu */
 .menu-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: auto;           /* ← Shrinks to content */
-    max-width: 300px;      /* ← But never wider than 300px */
-    margin: 0 auto;        /* ← Center horizontally */
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 20px;         /* ← Add some inside space! */
-    border-radius: 10px;   /* ← Soften edges? */
-    border: 1px solid lightblue; 
-
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 500px; 
+    width: 320px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    justify-content: center; /* ← Horizontal center */
+    align-items: center;     /* ← Vertical center */
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid lightblue;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    
 }
 
 /*headding of the menu */
 
 .menu-heading {
     color: lightblue;
+    margin-top: -400px;
+
 }
 
 
 /* to add life to the buttons */
 .menu-button {
     cursor: pointer;
-    width: 300px;
+    width: 80px;
     height: 30px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.15);
     border-radius: 8px; 
     color: white;
     border: 1px solid lightblue; 
+    margin-top: -370px;
+   
+    
+    
 }
 
