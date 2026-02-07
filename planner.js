@@ -12,22 +12,54 @@ let currentMonthIndex = currentDateObject.getMonth();
 let selectedDayNumber = null;
 let selectedDayElement = null;
 
+//for the time of the day varible 
+
+let hour = currentDateObject.getHours(); 
+let minutes = currentDateObject.getMinutes();
+
+console.log(`Time: ${hour}: ${minutes}`);
+
 // ==================== DOM ELEMENTS ====================
+//FOR DAY 
 const calendarDaysContainer = document.querySelector(".calendar-dates");
 const currentDateDisplay = document.querySelector(".calendar-current-date");
 const navigationButtons = document.querySelectorAll(".calendar-navigation span");
 
 
+const taskContainer = document.querySelector('.Add-task-container')
+const menuContainer = document.querySelector('.menu-container');
+
+//FOR THE TIME
+const fullDayContainer = document.querySelector(".clock-container");
+
+
+//=====================FOR EACH BUTTON THAT WAS CREATED=======
+const timeButton = document.createElement('button');
+
+
+//======SETING PROPETY FOR THE BUTTON======
+timeButton.className = 'timeB'; // Your CSS class
+
+//GIVING IT A NAME 
+timeButton.textContent = hour;
+
+//ADDING THE BUTTON 
+fullDayContainer.appendChild(timeButton);
+
+
 
 // ====================  BUTTON LISTENERs ====================
 
-//for task button
+//TASK BUTTON LISTENER
 document.querySelector('.task-button').addEventListener('click', function() {
     console.log("➕ Adding task for day", selectedDayNumber);
-
     
     // Show menu
-    document.querySelector('.menu-container').style.display = 'flex';
+    menuContainer.style.display = 'flex';
+
+    
+    //removes the content of the task button
+    taskContainer.style.display = 'none';
      
     
     // Update menu title with selected day
@@ -37,6 +69,11 @@ document.querySelector('.task-button').addEventListener('click', function() {
     }
 });
 
+// 3. Add event listener for the time button
+timeButton.addEventListener('click', function() {
+    console.log('Button clicked!');
+    // Your functionality here
+});
 
 
 //say the menu button was pressed 
@@ -47,8 +84,6 @@ document.querySelector('.menu-exist').addEventListener('click', function () {
     //removes the content of the memu 
     document.querySelector('.menu-container').style.display = 'none';
 
-    //removes the content of the task button
-    document.querySelector('.Add-task-container').style.display = 'none';
 });
 
 // ==================== CALENDAR GENERATION FUNCTIONS ====================
@@ -178,3 +213,11 @@ function initializeCalendar() {
 
 // ==================== START APPLICATION ====================
 initializeCalendar();
+
+//=============SET TIME FOR DAY MENU==========================
+function SetTime () {
+   // first display the currunet time and work from there 
+    
+
+    console.log(timeButton);
+}

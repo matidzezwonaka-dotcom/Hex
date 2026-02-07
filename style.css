@@ -302,72 +302,107 @@ body {
 
 }
 
-
-
 /*button style for the task section */
 .task-button {
 
     height: 50px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 255, 0.3);
      cursor: pointer;
     width: 300px;
     border-radius: 8px; 
-    color: white;
+    color: lightblue;
     border: 1px solid lightblue; 
     border-radius: 8px; 
 }
 
-/*to exsit the menu */
-.menu-exist {
-    margin-left: auto;
-    cursor: pointer;
-    border-radius: 8px; 
-    color: white;
-    border: 1px solid lightblue; 
-    background: rgba(255, 255, 255, 0.15);
-}
+/* ======================== MENU FIXES (CLEAN VERSION) ======================== */
 
-
-/* To center and add life the back grround of the menu */
+/* FIX 1: Menu container - centered properly */
 .menu-container {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
-    height: 500px; 
-    width: 320px;
     transform: translate(-50%, -50%);
-    z-index: 1000;
-    justify-content: center; /* ← Horizontal center */
-    align-items: center;     /* ← Vertical center */
-    background: rgba(255, 255, 255, 0.15);
+    width: 320px;
+    height: auto; /* Let content determine height */
+    min-height: 400px; /* Minimum height */
+    background: rgba(0, 10, 30, 0.9);
     border: 2px solid lightblue;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    
+    padding: 30px;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/*headding of the menu */
+/* FIX 2: Close button */
+.menu-exist {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid lightblue;
+    background: rgba(255, 255, 255, 0.15);
+    color: lightblue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: 0;
+}
 
+/* FIX 3: Menu heading */
 .menu-heading {
     color: lightblue;
-    margin-top: -400px;
-
+    text-align: center;
+    font-size: 1.5rem; /* Normal size! */
+    margin: 40px 0 20px 0; /* Space below */
+    width: 100%;
 }
 
+/* FIX 4: Menu buttons container */
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-/* to add life to the buttons */
+/* FIX 5: Individual menu buttons */
 .menu-button {
+    width: 200px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid lightblue;
+    border-radius: 8px;
+    color: lightblue;
     cursor: pointer;
-    width: 80px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 8px; 
-    color: white;
-    border: 1px solid lightblue; 
-    margin-top: -370px;
-   
-    
-    
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin: 0; /* NO margin-top here! */
 }
 
+/* FIX 6: Clock container */
+.clock-container {
+    color: lightblue;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid rgba(173, 216, 230, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 100%; /* NOT 1000px! */
+    margin: 10px 0;
+}
+
+
+/* FIX 8: Update your HTML structure */
