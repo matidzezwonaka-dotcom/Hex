@@ -7,20 +7,36 @@
     color: lightblue;
     text-align: center;
     font-size: 30px;
-    margin-top: 200px;
+    margin-top: 200px; 
+   
+
+  
+ 
+
+
 } 
-@media (min-width: 600px) {
-     .titles  { max-width: 1000px;}
 
+/* Responsive design for phones */
+  @media (max-width: 600px) {
+    .titles {
+        font-size: 24px; /* Slightly smaller */
+        margin-top: 100px; /* Less top space */
+    }
+    
+    .heading,
+    .sub-heading {
+        font-size: 24px;
+    }
 }
-
 /* Login info styling */
 .log-In {
     text-align: center;
+    
 
 }
 /* Note that "b" means button */
 .b {
+    
     width: 100%;
     max-width: 400px;
     height: 40px;
@@ -36,10 +52,16 @@
     position: relative; /* For glitch effect */
     overflow: hidden; /* For glitch effect */
 }
-@media (min-width: 600px) {
-     .b  { max-width: 500px;}
 
+ 
+@media (max-width: 600px) {
+    .b {
+        max-width: 90%; /* Take most of screen */
+        
+    }
 }
+
+
 
 
 .b:hover,
