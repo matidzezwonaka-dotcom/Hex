@@ -1,42 +1,46 @@
-/*The color for the webpage */
+/* ========================= GENERAL STYLES ========================= */
 
-/*========================Main title and starting page=================================*/
+/* Global box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+/* Body and background */
+body {
+    background-image: url('back-ground-color.PNG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* ========================= TITLES & HEADINGS ========================= */
 .titles {
-
     color: lightblue;
     text-align: center;
     font-size: 30px;
-    margin-top: 200px; 
-   
-
-  
- 
-
-
-} 
-
-/* Responsive design for phones */
-  @media (max-width: 600px) {
-    .titles {
-        font-size: 24px; /* Slightly smaller */
-        margin-top: 100px; /* Less top space */
-    }
-    
-    .heading,
-    .sub-heading {
-        font-size: 24px;
-    }
+    margin-top: 200px;
 }
-/* Login info styling */
+
+.heading, .sub-heading {
+    color: lightblue;
+    font-size: 30px;
+}
+
+.sub-heading {
+    text-align: center;
+}
+
+/* ========================= LOGIN BUTTONS ========================= */
 .log-In {
     text-align: center;
-    
-
 }
-/* Note that "b" means button */
+
 .b {
-    
     width: 100%;
     max-width: 400px;
     height: 40px;
@@ -49,20 +53,9 @@
     text-decoration: none;
     border: 1px solid lightblue;
     transition: all 0.2s ease;
-    position: relative; /* For glitch effect */
-    overflow: hidden; /* For glitch effect */
+    position: relative;
+    overflow: hidden;
 }
-
- 
-@media (max-width: 600px) {
-    .b {
-        max-width: 90%; /* Take most of screen */
-        
-    }
-}
-
-
-
 
 .b:hover,
 .grid-item:hover,
@@ -71,26 +64,7 @@
     transform: translateY(-2px);
 }
 
-/* dark-blue  */
-body {
-    background-image: url('back-ground-color.PNG');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    margin: 0;
-}
-
-/*====================For signing in and aka (create new account)=================================*/
-.details {
-    color: white;
-}
-
-
-
-/*========================Dashboard=================================*/
-
+/* ========================= DASHBOARD ========================= */
 .dashboard-background {
     background-image: url('back-ground-color.PNG');
     background-size: cover;
@@ -99,17 +73,7 @@ body {
     min-height: 100vh;
 }
 
-.heading,
-.sub-heading {
-    color: lightblue;
-    font-size: 30px;
-}
-
-.sub-heading {
-    text-align: center;
-}
-
-/* for the grid */
+/* Grid for dashboard */
 .container {
     display: grid;
     grid-template-columns: repeat(3, 250px);
@@ -120,7 +84,6 @@ body {
     padding: 20px;
 }
 
-/* Button styling */
 .grid-item {
     min-height: 100px;
     height: auto;
@@ -129,7 +92,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: normal;
     text-align: center;
     background-color: transparent;
     color: white;
@@ -145,8 +107,7 @@ body {
     transform: translateY(-3px);
 }
 
-/*========================PLANNER=================================*/
-
+/* ========================= PLANNER / CALENDAR ========================= */
 .planner-background {
     background-image: url('back-ground-color.PNG');
     background-size: cover;
@@ -154,9 +115,7 @@ body {
     background-position: center;
 }
 
-/* ======================== CALENDAR STYLES ======================== */
-
-.calendar-container { 
+.calendar-container {
     width: 100%;
     max-width: 500px;
     margin: 40px auto;
@@ -207,7 +166,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Days of week headers */
 .calendar-weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -224,7 +182,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Calendar dates grid */
 .calendar-dates {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -248,7 +205,6 @@ body {
     font-size: 1rem;
 }
 
-/* Active (today) */
 .calendar-dates li.active {
     background: rgba(74, 144, 226, 0.8);
     color: white;
@@ -256,7 +212,6 @@ body {
     box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
 }
 
-/* Highlighted (clicked day) */
 .calendar-dates li.highlight {
     background: rgba(255, 255, 255, 0.3);
     border: 2px solid lightblue;
@@ -265,112 +220,53 @@ body {
     color: lightblue;
 }
 
-/* Inactive (previous/next month) */
 .calendar-dates li.inactive {
     color: rgba(173, 216, 230, 0.4);
     cursor: default;
 }
 
-/* Hover effect for active days */
 .calendar-dates li:not(.inactive):hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
-    .container {
-        grid-template-columns: repeat(2, 250px);
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        grid-template-columns: 1fr;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-    
-    .calendar-container {
-        max-width: 95%;
-        padding: 15px;
-        margin: 20px auto;
-    }
-    
-    .calendar-current-date {
-        font-size: 1.4rem;
-    }
-    
-    .calendar-dates li {
-        height: 40px;
-        font-size: 0.9rem;
-    }
-    
-    .calendar-navigation span {
-        width: 35px;
-        height: 35px;
-        font-size: 1.2rem;
-    }
-    
-    .calendar-header {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
-}
-
-/*=================Daily task=================================*/
-/* Task bar styling - hidden by default */
-
-
-/* style for the task section */
+/* ========================= TASK SECTION ========================= */
 .Add-task-container {
-     
     display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
-
 }
 
-/*button style for the task section */
 .task-button {
-
     height: 50px;
-    background: rgba(255, 255, 255, 0.2);;
-     cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
     width: 300px;
-    border-radius: 8px; 
+    border-radius: 8px;
     color: lightblue;
-    border: 1px solid lightblue; 
-    border-radius: 8px; 
+    border: 1px solid lightblue;
 }
 
-
-
-/* FIX 1: Menu container - centered properly */
+/* ========================= MENU ========================= */
 .menu-container {
-    
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 320px;
-    height: auto; /* Let content determine height */
-    min-height: 400px; /* Minimum height */
+    min-height: 400px;
     background: rgba(0, 10, 30, 0.9);
     border: 2px solid lightblue;
     border-radius: 15px;
     backdrop-filter: blur(10px);
     padding: 30px;
-    box-sizing: border-box;
     z-index: 1000;
     flex-direction: column;
     align-items: center;
 }
 
-/* FIX 2: Close button */
 .menu-exist {
     position: absolute;
     top: 15px;
@@ -382,29 +278,21 @@ body {
     background: rgba(255, 255, 255, 0.15);
     color: lightblue;
     cursor: pointer;
-    /*
     display: flex;
-    */
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    margin: 0;
 }
 
-/* FIX 3: Menu heading */
 .menu-heading {
     color: lightblue;
     text-align: center;
-    font-size: 1.5rem; /* Normal size! */
-    margin: 40px 0 20px 0; /* Space below */
+    font-size: 1.5rem;
+    margin: 40px 0 20px 0;
     width: 100%;
 }
 
-/* FIX 4: Menu buttons container */
 .menu-buttons {
-    /*
-    display: flex;
-    */
     flex-direction: column;
     gap: 15px;
     width: 100%;
@@ -412,7 +300,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* FIX 5: Individual menu buttons */
 .menu-button {
     width: 200px;
     height: 45px;
@@ -423,10 +310,8 @@ body {
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
-    margin: 0; /* NO margin-top here! */
 }
 
-/* FIX 6: Clock container */
 .clock-container {
     color: lightblue;
     text-align: center;
@@ -435,10 +320,113 @@ body {
     border: 1px solid rgba(173, 216, 230, 0.3);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.05);
-    width: 100%; 
+    width: 100%;
     margin: 10px 0;
 }
 
 .search-bar {
     color: lightblue;
+}
+
+/* ========================= RESPONSIVE MEDIA QUERIES ========================= */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(2, 250px);
+    }
+}
+
+@media (max-width: 600px) {
+    /* Titles and headings */
+    .titles {
+        font-size: 24px;
+        margin-top: 100px;
+        padding: 0 10px;
+    }
+    .heading, .sub-heading {
+        font-size: 20px;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    /* Buttons */
+    .b {
+        max-width: 90%;
+        font-size: 18px;
+        height: 40px;
+    }
+
+    /* Dashboard Grid */
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+        gap: 10px;
+    }
+    .grid-item {
+        width: 100%;
+        max-width: 100%;
+        font-size: 18px;
+        min-height: 80px;
+        max-height: 150px;
+        padding: 10px;
+    }
+
+    /* Calendar */
+    .calendar-container {
+        max-width: 95%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+    .calendar-current-date {
+        font-size: 1.4rem;
+    }
+    .calendar-dates li {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    .calendar-navigation span {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    .calendar-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    /* Menu container and buttons */
+    .menu-container {
+        width: 90%;
+        min-height: auto;
+        padding: 20px;
+    }
+    .menu-button {
+        width: 90%;
+        font-size: 0.95rem;
+        height: 40px;
+    }
+
+    /* Task section */
+    .task-button {
+        width: 90%;
+        max-width: 300px;
+        font-size: 16px;
+    }
+
+    /* Clock and search bar */
+    .clock-container,
+    .search-bar {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+}
+
+/* Optional: super small phones (<400px) */
+@media (max-width: 400px) {
+    .calendar-dates li {
+        height: 35px;
+        font-size: 0.8rem;
+    }
 }
