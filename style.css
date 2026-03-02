@@ -1,11 +1,6 @@
 /* ========================= GENERAL STYLES ========================= */
 
-/* Global box-sizing */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+
 
 /* Body and background */
 body {
@@ -13,7 +8,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-height: 100vh;
+    min-height:  100svh;
     font-family: Arial, sans-serif;
     color: white;
 }
@@ -23,7 +18,7 @@ body {
     color: lightblue;
     text-align: center;
     font-size: 30px;
-    margin-top: 200px;
+
 }
 
 .heading, .sub-heading {
@@ -42,8 +37,9 @@ body {
 }
 
 .b {
-   
-    width: 400px;
+   max-width: 100%;
+    width: 100%;
+    
     height: 40px;
     font-size: 20px;
     display: inline-block;
@@ -328,58 +324,3 @@ body {
 .search-bar {
     color: lightblue;
 }
-
-/* ========================= RESPONSIVE MEDIA QUERIES ========================= */
-
-    /* Calendar */
-    .calendar-container {
-        max-width: 95%;
-        padding: 15px;
-        margin: 20px auto;
-    }
-    .calendar-current-date {
-        font-size: 1.4rem;
-    }
-    .calendar-dates li {
-        height: 40px;
-        font-size: 0.9rem;
-    }
-    .calendar-navigation span {
-        width: 35px;
-        height: 35px;
-        font-size: 1.2rem;
-    }
-    .calendar-header {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
-
-    /* Menu container and buttons */
-    .menu-container {
-        width: 90%;
-        min-height: auto;
-        padding: 20px;
-    }
-    .menu-button {
-        width: 90%;
-        font-size: 0.95rem;
-        height: 40px;
-    }
-
-    /* Task section */
-    .task-button {
-        width: 90%;
-        max-width: 300px;
-        font-size: 16px;
-    }
-
-    /* Clock and search bar */
-    .clock-container,
-    .search-bar {
-        width: 90%;
-        font-size: 0.9rem;
-    }
-}
-
-
