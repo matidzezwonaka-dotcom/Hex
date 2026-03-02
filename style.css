@@ -38,11 +38,12 @@ body {
 /* ========================= LOGIN BUTTONS ========================= */
 .log-In {
     text-align: center;
+    
 }
 
 .b {
-    width: 100%;
-    max-width: 400px;
+   
+    width: 400px;
     height: 40px;
     font-size: 20px;
     display: inline-block;
@@ -329,6 +330,14 @@ body {
 }
 
 /* ========================= RESPONSIVE MEDIA QUERIES ========================= */
+
+@media (max-width: 1000px) {
+    .b {
+        font: 40px;
+       
+    }
+}
+
 @media (max-width: 900px) {
     .container {
         grid-template-columns: repeat(2, 250px);
