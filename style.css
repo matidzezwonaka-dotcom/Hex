@@ -331,56 +331,6 @@ body {
 
 /* ========================= RESPONSIVE MEDIA QUERIES ========================= */
 
-@media (max-width: 1000px) {
-    .b {
-        font: 40px;
-       
-    }
-}
-
-@media (max-width: 900px) {
-    .container {
-        grid-template-columns: repeat(2, 250px);
-    }
-}
-
-@media (max-width: 600px) {
-    /* Titles and headings */
-    .titles {
-        font-size: 24px;
-        margin-top: 100px;
-        padding: 0 10px;
-    }
-    .heading, .sub-heading {
-        font-size: 20px;
-        padding: 0 10px;
-        text-align: center;
-    }
-
-    /* Buttons */
-    .b {
-        max-width: 90%;
-        font-size: 18px;
-        height: 40px;
-    }
-
-    /* Dashboard Grid */
-    .container {
-        grid-template-columns: 1fr;
-        max-width: 95%;
-        margin: 0 auto;
-        padding: 10px;
-        gap: 10px;
-    }
-    .grid-item {
-        width: 100%;
-        max-width: 100%;
-        font-size: 18px;
-        min-height: 80px;
-        max-height: 150px;
-        padding: 10px;
-    }
-
     /* Calendar */
     .calendar-container {
         max-width: 95%;
@@ -432,10 +382,4 @@ body {
     }
 }
 
-/* Optional: super small phones (<400px) */
-@media (max-width: 400px) {
-    .calendar-dates li {
-        height: 35px;
-        font-size: 0.8rem;
-    }
-}
+
