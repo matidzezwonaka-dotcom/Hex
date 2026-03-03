@@ -17,6 +17,7 @@ let selectedDayElement = null;
 let hour = currentDateObject.getHours(); 
 let minutes = currentDateObject.getMinutes();
 
+
 console.log(`Time: ${hour}: ${minutes}`);
 
 // ==================== DOM ELEMENTS ====================
@@ -45,7 +46,6 @@ timeButton.textContent = hour;
 
 //ADDING THE BUTTON 
 fullDayContainer.appendChild(timeButton);
-
 
 
 // ====================  BUTTON LISTENERs ====================
@@ -221,3 +221,79 @@ function SetTime () {
 
     console.log(timeButton);
 }
+
+//===========FOR THE TASK BAR (TIME) ==============
+
+//===========light bulb logic 
+
+const body = document.getElementById('body');
+        const bulb = document.getElementById('bulb');
+        const switchEl = document.getElementById('switch');
+        const switchLabel = document.getElementById('switchLabel');
+        const titles = document.getElementById('titles');
+        const loginButtons = document.getElementById('loginButtons');
+        const hint = document.getElementById('hint');
+
+        let isOn = false;
+
+        switchEl.addEventListener('click', () => {
+            isOn = !isOn;
+
+            if (isOn) {
+                // Switch ON
+                switchEl.classList.add('on');
+                switchLabel.textContent = 'ON';
+                
+                // Light up bulb
+                bulb.classList.add('glow');
+                
+                // Lighten background
+                body.classList.add('lit');
+                
+                // Fade out hint
+                hint.classList.add('fade-out');
+                
+                // Show titles and buttons with dramatic delay
+                setTimeout(() => {
+                    titles.classList.add('visible');
+                }, 200);
+                
+                setTimeout(() => {
+                    loginButtons.classList.add('visible');
+                }, 400);
+                
+            } else {
+                // Switch OFF
+                switchEl.classList.remove('on');
+                switchLabel.textContent = 'OFF';
+                
+                // Dim bulb
+                bulb.classList.remove('glow');
+                
+                // Darken background
+                body.classList.remove('lit');
+                
+                // Show hint again
+                hint.classList.remove('fade-out');
+                
+                // Hide titles and buttons
+                titles.classList.remove('visible');
+                loginButtons.classList.remove('visible');
+            }
+        });
+
+        // Prevent clicking links when switch is off
+        document.querySelectorAll('.b').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (!isOn) {
+                    e.preventDefault();
+                    // Optional: give feedback
+                    hint.style.opacity = '1';
+                    hint.textContent = 'flip the switch first!';
+                    setTimeout(() => {
+                        hint.textContent = 'flip the switch to begin';
+                        hint.style.opacity = '0.5';
+                    }, 1500);
+                }
+            });
+        });
