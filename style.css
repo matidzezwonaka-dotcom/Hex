@@ -1,55 +1,62 @@
 /* ========================= GLOBAL RESET ========================= */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
 }
 
 body {
-    margin: 0;
     background-image: url('back-ground-color.PNG');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-height: 100svh;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;   /* vertical centering */
-    align-items: center;       /* horizontal centering */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     font-family: Arial, sans-serif;
     color: white;
-    text-align: center;
+    min-height: 100vh;
 }
 
 /* ========================= TITLES ========================= */
 .titles {
-    padding: 10px 20px;
+    width: 90%;
+    max-width: 500px;
 }
 
 .titles h1 {
-    font-size: clamp(2rem, 6vw, 3rem); /* scales with screen */
-    margin: 0;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 10px;
 }
 
 .titles h2 {
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-    margin: 10px 0 0 0;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
 }
 
 /* ========================= LOGIN BUTTONS ========================= */
 .log-In {
-    margin-top: 30px;
-    width: 90%;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
 }
 
 .b {
     width: 100%;
-    padding: 18px;
-    font-size: 1.1rem;
+    padding: 20px;
+    font-size: 1.2rem;
     text-align: center;
     background-color: transparent;
     color: white;
@@ -70,8 +77,11 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 100svh;
+    min-height: 100vh;
+    width: 100%;
     padding: 20px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
@@ -80,7 +90,7 @@ body {
     gap: 15px;
     padding: 20px;
     max-width: 1000px;
-    margin: 0 auto;
+    width: 90%;
 }
 
 .grid-item {
@@ -110,7 +120,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 100svh;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .calendar-container {
@@ -312,18 +325,18 @@ body {
 }
 
 /* ========================= SMALL SCREEN TWEAKS ========================= */
-@media (max-width: 360px) {
+@media (max-width: 480px) {
     .titles h1 {
-        font-size: 2rem;
+        font-size: 8vw;
     }
 
     .titles h2 {
-        font-size: 1.2rem;
+        font-size: 5vw;
     }
 
     .b {
-        font-size: 1rem;
-        padding: 14px;
+        font-size: 1.3rem;
+        padding: 18px;
     }
 
     .grid-item {
