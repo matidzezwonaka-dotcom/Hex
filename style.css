@@ -1,33 +1,29 @@
-/* ========================= GENERAL STYLES ========================= */
+/* ========================= GLOBAL RESET ========================= */
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-}
-
-
-/* Body and background */
-body {
     background-image: url('back-ground-color.PNG');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-height:  100svh;
+    min-height: 100svh;
     font-family: Arial, sans-serif;
     color: white;
 }
 
-/* ========================= TITLES & HEADINGS ========================= */
+/* ========================= TITLES ========================= */
 .titles {
     color: lightblue;
     text-align: center;
     font-size: 30px;
-
+    padding: 20px;
 }
 
-.heading, .sub-heading {
+.heading,
+.sub-heading {
     color: lightblue;
     font-size: 30px;
 }
@@ -36,40 +32,32 @@ body {
     text-align: center;
 }
 
-/* ========================= LOGIN BUTTONS ========================= */
+/* ========================= LOGIN PAGE ========================= */
 .log-In {
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .b {
-    height: 100px;
-
-   max-width: 100%;
     width: 100%;
-        padding: 20px;
-    height: auto;
-   
+    padding: 20px;
     font-size: 20px;
-    display: inline-block;
-    line-height: 40px;
     text-align: center;
     background-color: transparent;
     color: white;
     text-decoration: none;
     border: 1px solid lightblue;
+    border-radius: 10px;
     transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
 }
 
-.b:hover,
-.grid-item:hover,
-#guestButton:hover {
-    background-color: blue;
+.b:hover {
+    background-color: rgba(0, 0, 255, 0.4);
     transform: translateY(-2px);
 }
 
@@ -79,27 +67,21 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 100vh;
+    min-height: 100svh;
 }
 
-/* Grid for dashboard */
 .container {
     display: grid;
-    
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-    justify-content: center;
-    align-content: center;
-    gap: 10px;
-    min-height: 70vh;
+    gap: 15px;
     padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .grid-item {
-    min-height: 100px;
-    height: auto;
-    max-height: 180px;
-    font-size: 20px;
+    min-height: 120px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,8 +90,8 @@ body {
     color: white;
     text-decoration: none;
     border: 1px solid lightblue;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 12px;
+    padding: 20px;
     transition: all 0.3s ease;
 }
 
@@ -124,17 +106,18 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    min-height: 100svh;
 }
 
 .calendar-container {
-    width: 100%;
+    width: 95%;
     max-width: 500px;
-    margin: 40px auto;
+    margin: 30px auto;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 25px;
+    padding: 20px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
@@ -142,14 +125,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .calendar-current-date {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: lightblue;
     font-weight: 600;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .calendar-navigation {
@@ -158,87 +140,74 @@ body {
 }
 
 .calendar-navigation span {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     color: lightblue;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    user-select: none;
+    transition: 0.3s ease;
 }
 
 .calendar-navigation span:hover {
     background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
 }
 
-.calendar-weekdays {
+.calendar-weekdays,
+.calendar-dates {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     list-style: none;
     padding: 0;
-    margin: 0 0 15px 0;
+    margin: 0;
     text-align: center;
 }
 
 .calendar-weekdays li {
     color: lightblue;
     font-weight: 600;
-    padding: 10px 0;
-    font-size: 0.9rem;
+    padding: 8px 0;
+    font-size: 0.85rem;
 }
 
 .calendar-dates {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    gap: 6px;
+    margin-top: 10px;
 }
 
 .calendar-dates li {
-    height: 45px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: lightblue;
-    font-weight: 500;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    font-size: 1rem;
+    transition: 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .calendar-dates li.active {
     background: rgba(74, 144, 226, 0.8);
     color: white;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
 }
 
 .calendar-dates li.highlight {
-    background: rgba(255, 255, 255, 0.3);
     border: 2px solid lightblue;
-    font-weight: bold;
-    transform: scale(1.05);
-    color: lightblue;
 }
 
 .calendar-dates li.inactive {
-    color: rgba(173, 216, 230, 0.4);
+    opacity: 0.4;
     cursor: default;
 }
 
 .calendar-dates li:not(.inactive):hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
 }
 
 /* ========================= TASK SECTION ========================= */
@@ -247,94 +216,91 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 20px;
 }
 
 .task-button {
-    height: 50px;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
     background: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    width: 300px;
     border-radius: 8px;
     color: lightblue;
     border: 1px solid lightblue;
+    cursor: pointer;
 }
 
 /* ========================= MENU ========================= */
 .menu-container {
-     width: 90%;
-    max-width: 320px;
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-   
-    min-height: 400px;
-    background: rgba(0, 10, 30, 0.9);
+    width: 90%;
+    max-width: 320px;
+    min-height: 350px;
+    background: rgba(0, 10, 30, 0.95);
     border: 2px solid lightblue;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    padding: 30px;
+    padding: 25px;
     z-index: 1000;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
 }
 
 .menu-exist {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 1px solid lightblue;
     background: rgba(255, 255, 255, 0.15);
     color: lightblue;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .menu-heading {
     color: lightblue;
     text-align: center;
-    font-size: 1.5rem;
-    margin: 40px 0 20px 0;
-    width: 100%;
+    font-size: 1.3rem;
+    margin-top: 20px;
 }
 
 .menu-buttons {
+    display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     width: 100%;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .menu-button {
-    width: 200px;
-    height: 45px;
+    width: 100%;
+    max-width: 220px;
+    padding: 12px;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid lightblue;
     border-radius: 8px;
     color: lightblue;
     cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
 }
 
 .clock-container {
-    color: lightblue;
     text-align: center;
-    font-size: 1rem;
     padding: 10px;
-    border: 1px solid rgba(173, 216, 230, 0.3);
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
     width: 100%;
-    margin: 10px 0;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .search-bar {
