@@ -114,7 +114,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* ========================= PLANNER / CALENDAR ========================= */
+/* ========================= PLANNER / CALENDAR - MADE BIGGER ========================= */
 .planner-background {
     background-image: url('back-ground-color.PNG');
     background-size: cover;
@@ -124,48 +124,49 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .calendar-container {
     width: 95%;
-    max-width: 500px;
-    margin: 30px auto;
+    max-width: 1200px;        /* INCREASED from 500px to 1200px */
+    margin: 40px auto;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;       /* Slightly more rounded */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 40px;             /* More padding */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .calendar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 30px;       /* More space */
 }
 
 .calendar-current-date {
-    font-size: 1.5rem;
+    font-size: 2.5rem;         /* MUCH BIGGER month/year */
     color: lightblue;
     font-weight: 600;
 }
 
 .calendar-navigation {
     display: flex;
-    gap: 10px;
+    gap: 15px;                 /* More gap */
 }
 
 .calendar-navigation span {
-    width: 38px;
-    height: 38px;
+    width: 50px;               /* Bigger nav buttons */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     color: lightblue;
-    font-size: 1.3rem;
+    font-size: 1.8rem;         /* Bigger arrows */
     cursor: pointer;
     transition: 0.3s ease;
 }
@@ -187,35 +188,37 @@ body {
 .calendar-weekdays li {
     color: lightblue;
     font-weight: 600;
-    padding: 8px 0;
-    font-size: 0.85rem;
+    padding: 15px 0;           /* More padding */
+    font-size: 1.3rem;         /* BIGGER day names */
 }
 
 .calendar-dates {
-    gap: 6px;
-    margin-top: 10px;
+    gap: 10px;                 /* More gap between dates */
+    margin-top: 20px;
 }
 
 .calendar-dates li {
-    height: 40px;
+    height: 100px;             /* MUCH TALLER date cells (was 40px) */
     display: flex;
     align-items: center;
     justify-content: center;
     color: lightblue;
-    border-radius: 8px;
+    border-radius: 12px;       /* More rounded corners */
     cursor: pointer;
     transition: 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 1.5rem;         /* MUCH BIGGER date numbers (was 0.9rem) */
+    font-weight: 500;
 }
 
 .calendar-dates li.active {
     background: rgba(74, 144, 226, 0.8);
     color: white;
     font-weight: bold;
+    font-size: 1.7rem;         /* Even bigger when active */
 }
 
 .calendar-dates li.highlight {
-    border: 2px solid lightblue;
+    border: 3px solid lightblue;
 }
 
 .calendar-dates li.inactive {
@@ -225,6 +228,7 @@ body {
 
 .calendar-dates li:not(.inactive):hover {
     background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);     /* Slight grow on hover */
 }
 
 /* ========================= TASK SECTION ========================= */
@@ -263,7 +267,6 @@ body {
     backdrop-filter: blur(10px);
     padding: 25px;
     z-index: 1000;
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
@@ -320,11 +323,137 @@ body {
     background: rgba(255, 255, 255, 0.05);
 }
 
-.search-bar {
+/*===========TASK MENU DETAILED =========== */
+.task-management {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto 1fr;
+    gap: 15px;
+    padding: 50px 20px 20px 20px;
+    
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    height: auto;
+    
+    border-radius: 8px;
+    border: 2px solid lightblue;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.task-management-exist {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid lightblue;
+    background: rgba(255, 255, 255, 0.15);
     color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.num-task {
+    grid-column: 1;
+    grid-row: 1;
+    border-radius: 8px;
+    border: 1px solid lightblue;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-time {
+    grid-column: 1;
+    grid-row: 2;
+    border-radius: 8px;
+    border: 1px solid lightblue;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.bar-graph {
+    grid-column: 1;
+    grid-row: 3;
+    border-radius: 8px;
+    border: 1px solid lightblue;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pie-chart {
+    grid-column: 1;
+    grid-row: 4;
+    border-radius: 8px;
+    border: 1px solid lightblue;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.time-slots {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    border-radius: 8px;
+    border: 1px solid lightblue;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* ========================= SMALL SCREEN TWEAKS ========================= */
+@media (max-width: 768px) {
+    .calendar-container {
+        max-width: 95%;
+        padding: 20px;
+    }
+    
+    .calendar-current-date {
+        font-size: 2rem;
+    }
+    
+    .calendar-dates li {
+        height: 70px;
+        font-size: 1.2rem;
+    }
+    
+    .calendar-weekdays li {
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+}
+
 @media (max-width: 480px) {
     .titles h1 {
         font-size: 8vw;
@@ -344,13 +473,45 @@ body {
         padding: 15px;
     }
 
+    .calendar-container {
+        padding: 15px;
+    }
+    
+    .calendar-current-date {
+        font-size: 1.5rem;
+    }
+    
     .calendar-dates li {
-        height: 35px;
-        font-size: 0.8rem;
+        height: 50px;
+        font-size: 1rem;
     }
 
     .calendar-weekdays li {
-        font-size: 0.75rem;
-        padding: 6px 0;
+        font-size: 0.85rem;
+        padding: 8px 0;
+    }
+    
+    /* Mobile adjustments for task management */
+    .task-management {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        padding: 50px 10px 10px 10px;
+    }
+    
+    .num-task,
+    .search-time,
+    .bar-graph,
+    .pie-chart,
+    .time-slots {
+        grid-column: 1;
+    }
+    
+    .num-task { grid-row: 1; }
+    .search-time { grid-row: 2; }
+    .bar-graph { grid-row: 3; }
+    .pie-chart { grid-row: 4; }
+    .time-slots { 
+        grid-row: 5; 
+        min-height: 200px;
     }
 }

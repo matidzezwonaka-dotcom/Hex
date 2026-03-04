@@ -39,13 +39,6 @@ const timeButton = document.createElement('button');
 
 
 //======SETING PROPETY FOR THE BUTTON======
-timeButton.className = 'timeB'; // Your CSS class
-
-//GIVING IT A NAME 
-timeButton.textContent = hour;
-
-//ADDING THE BUTTON 
-fullDayContainer.appendChild(timeButton);
 
 
 // ====================  BUTTON LISTENERs ====================
@@ -57,7 +50,6 @@ document.querySelector('.task-button').addEventListener('click', function() {
     // Show menu
     menuContainer.style.display = 'flex';
 
-    
     //removes the content of the task button
     taskContainer.style.display = 'none';
      
@@ -69,11 +61,15 @@ document.querySelector('.task-button').addEventListener('click', function() {
     }
 });
 
-// 3. Add event listener for the time button
-timeButton.addEventListener('click', function() {
-    console.log('Button clicked!');
-    // Your functionality here
-});
+// //removes the content of the task management button
+document.querySelector('.task-management-exist').addEventListener('click', function () {
+        console.log("task-management-exist clicked");
+
+         document.querySelector('.task-management').style.display = 'none';
+
+})
+
+
 
 
 //say the menu button was pressed 
