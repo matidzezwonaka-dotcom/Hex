@@ -114,7 +114,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* ========================= PLANNER / CALENDAR - MADE BIGGER ========================= */
+/* ========================= PLANNER / CALENDAR ========================= */
 .planner-background {
     background-image: url('back-ground-color.PNG');
     background-size: cover;
@@ -124,49 +124,49 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .calendar-container {
     width: 95%;
-    max-width: 1200px;        /* INCREASED from 500px to 1200px */
-    margin: 40px auto;
+    max-width: 1200px;
+    height: 500px;
+    margin: 30px auto;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    border-radius: 30px;       /* Slightly more rounded */
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 40px;             /* More padding */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .calendar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;       /* More space */
+    margin-bottom: 20px;
 }
 
 .calendar-current-date {
-    font-size: 2.5rem;         /* MUCH BIGGER month/year */
+    font-size: 1.5rem;
     color: lightblue;
     font-weight: 600;
 }
 
 .calendar-navigation {
     display: flex;
-    gap: 15px;                 /* More gap */
+    gap: 10px;
 }
 
 .calendar-navigation span {
-    width: 50px;               /* Bigger nav buttons */
-    height: 50px;
+    width: 38px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     color: lightblue;
-    font-size: 1.8rem;         /* Bigger arrows */
+    font-size: 1.3rem;
     cursor: pointer;
     transition: 0.3s ease;
 }
@@ -187,38 +187,36 @@ body {
 
 .calendar-weekdays li {
     color: lightblue;
-    font-weight: 600;
-    padding: 15px 0;           /* More padding */
-    font-size: 1.3rem;         /* BIGGER day names */
+    font-weight: 500;
+    padding: 8px 0;
+    font-size: 0.85rem;
 }
 
 .calendar-dates {
-    gap: 10px;                 /* More gap between dates */
-    margin-top: 20px;
+    gap: 6px;
+    margin-top: 10px;
 }
 
 .calendar-dates li {
-    height: 100px;             /* MUCH TALLER date cells (was 40px) */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: lightblue;
-    border-radius: 12px;       /* More rounded corners */
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s ease;
-    font-size: 1.5rem;         /* MUCH BIGGER date numbers (was 0.9rem) */
-    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .calendar-dates li.active {
     background: rgba(74, 144, 226, 0.8);
     color: white;
     font-weight: bold;
-    font-size: 1.7rem;         /* Even bigger when active */
 }
 
 .calendar-dates li.highlight {
-    border: 3px solid lightblue;
+    border: 2px solid lightblue;
 }
 
 .calendar-dates li.inactive {
@@ -228,7 +226,6 @@ body {
 
 .calendar-dates li:not(.inactive):hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);     /* Slight grow on hover */
 }
 
 /* ========================= TASK SECTION ========================= */
@@ -238,6 +235,7 @@ body {
     align-items: center;
     width: 100%;
     padding: 20px;
+  
 }
 
 .task-button {
@@ -259,8 +257,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 320px;
-    min-height: 350px;
+    max-width: 1200px;
+    min-height: 500px;
     background: rgba(0, 10, 30, 0.95);
     border: 2px solid lightblue;
     border-radius: 15px;
@@ -295,17 +293,14 @@ body {
     margin-top: 20px;
 }
 
-.menu-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    align-items: center;
-}
 
 .menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
     width: 100%;
-    max-width: 220px;
+    max-width: 490px;
     padding: 12px;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid lightblue;
@@ -314,35 +309,22 @@ body {
     cursor: pointer;
 }
 
-.clock-container {
-    text-align: center;
-    padding: 10px;
-    border-radius: 8px;
-    width: 100%;
-    font-size: 0.9rem;
-    background: rgba(255, 255, 255, 0.05);
-}
 
-/*===========TASK MENU DETAILED =========== */
+/*===========TASK MENU DETAILED - FIXED VERSION =========== */
 .task-management {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto auto 1fr;
-    gap: 15px;
-    padding: 50px 20px 20px 20px;
-    
+    display: block;  /* Changed from flex */
     position: fixed;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    width: auto;
-    height: auto;
+    top: 10px;       /* Added px unit */
+    left: 10px;      /* Added px unit */
+    right: 10px;     /* Added px unit */
+    bottom: 10px;    /* Added px unit */
+    width: auto;     /* Let positioning handle it */
+    height: auto;    /* Let positioning handle it */
     
     border-radius: 8px;
     border: 2px solid lightblue;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 10, 30, 0.95);
 }
 
 .task-management-exist {
@@ -362,6 +344,15 @@ body {
     z-index: 1001;
 }
 
+/* Using CSS Grid for better layout */
+.task-management {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto 1fr;
+    gap: 15px;
+    padding: 50px 20px 20px 20px;
+}
+
 .num-task {
     grid-column: 1;
     grid-row: 1;
@@ -376,7 +367,7 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.search-time {
+.number-of-deadline {
     grid-column: 1;
     grid-row: 2;
     border-radius: 8px;
@@ -396,7 +387,7 @@ body {
     border-radius: 8px;
     border: 1px solid lightblue;
     width: 100%;
-    height: 120px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -410,7 +401,7 @@ body {
     border-radius: 8px;
     border: 1px solid lightblue;
     width: 100%;
-    height: 120px;
+    height: 270px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -433,27 +424,6 @@ body {
 }
 
 /* ========================= SMALL SCREEN TWEAKS ========================= */
-@media (max-width: 768px) {
-    .calendar-container {
-        max-width: 95%;
-        padding: 20px;
-    }
-    
-    .calendar-current-date {
-        font-size: 2rem;
-    }
-    
-    .calendar-dates li {
-        height: 70px;
-        font-size: 1.2rem;
-    }
-    
-    .calendar-weekdays li {
-        font-size: 1rem;
-        padding: 10px 0;
-    }
-}
-
 @media (max-width: 480px) {
     .titles h1 {
         font-size: 8vw;
@@ -473,22 +443,14 @@ body {
         padding: 15px;
     }
 
-    .calendar-container {
-        padding: 15px;
-    }
-    
-    .calendar-current-date {
-        font-size: 1.5rem;
-    }
-    
     .calendar-dates li {
-        height: 50px;
-        font-size: 1rem;
+        height: 35px;
+        font-size: 0.8rem;
     }
 
     .calendar-weekdays li {
-        font-size: 0.85rem;
-        padding: 8px 0;
+        font-size: 0.75rem;
+        padding: 6px 0;
     }
     
     /* Mobile adjustments for task management */

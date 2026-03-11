@@ -26,12 +26,21 @@ const calendarDaysContainer = document.querySelector(".calendar-dates");
 const currentDateDisplay = document.querySelector(".calendar-current-date");
 const navigationButtons = document.querySelectorAll(".calendar-navigation span");
 
-
+//task container in planner 
 const taskContainer = document.querySelector('.Add-task-container')
+
+//menu container in planner 
 const menuContainer = document.querySelector('.menu-container');
 
-//FOR THE TIME
-const fullDayContainer = document.querySelector(".clock-container");
+//task management in planner 
+const taskManagement = document.querySelector('.task-management');
+
+//day-of-task in planner 
+const dayOfTask = document.querySelector('.day-of-task');
+
+//default keeps the task-mangement off until needed 
+taskManagement.style.display = 'none';
+
 
 
 //=====================FOR EACH BUTTON THAT WAS CREATED=======
@@ -59,16 +68,32 @@ document.querySelector('.task-button').addEventListener('click', function() {
     if (heading && selectedDayNumber) {
         heading.textContent = `Tasks for Day ${selectedDayNumber}`;
     }
+
+
 });
+
+//listens for the menu that are clicked in planner 
+    document.querySelector('.menu-button').addEventListener ('click', function () {
+           console.log("menu-button was clicked");
+        //closes the menu container after the button is pressed 
+        menuContainer.style.display = 'none';
+
+
+
+         //show task management 
+        taskManagement.style.display = ' grid';
+            dayOfTask.textContent = `Tasks for Day ${selectedDayNumber}`;
+});
+
+
 
 // //removes the content of the task management button
 document.querySelector('.task-management-exist').addEventListener('click', function () {
         console.log("task-management-exist clicked");
+    
+         taskManagement.style.display = 'none';
 
-         document.querySelector('.task-management').style.display = 'none';
-
-})
-
+});
 
 
 
